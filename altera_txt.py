@@ -1,13 +1,15 @@
 from selecionar_arquivo import selecionar_arquivo
 from tkinter import messagebox
 
-def altera_txt():
+def altera_txt(caminho_txt):
     # Usa a função para selecionar o arquivo
-    filename = selecionar_arquivo()
     
-    if filename:
+    #filename = selecionar_arquivo()
+    caminho_txt = caminho_txt.get()
+
+    if caminho_txt:
         # Lê o conteúdo do arquivo
-        with open(filename, 'r') as file:
+        with open(caminho_txt, 'r') as file:
             lines = file.readlines()
         
         # Armazena as linhas processadas
@@ -46,11 +48,11 @@ def altera_txt():
             i += 1
         
         # Escreve as linhas processadas de volta para o arquivo
-        with open(filename, 'w') as file:
+        with open(caminho_txt, 'w') as file:
             file.writelines(new_lines)
         
         # Exibe uma mensagem de sucesso ao usuário
-        messagebox.showinfo("Sucesso", f"Processamento concluído! O arquivo '{filename}' foi atualizado.")
+        messagebox.showinfo("Sucesso", f"Processamento concluído! O arquivo '{caminho_txt}' foi atualizado.")
     else:
         # Exibe uma mensagem de aviso ao usuário
         messagebox.showwarning("Aviso", "Nenhum arquivo foi selecionado.")

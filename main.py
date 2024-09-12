@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import ttk, Frame
-from botao_localizar_atualizar import botao_localizar_atualizar
 from label_assinatura import label_assinatura
 from frame_excecoes import frame_excecoes
 from frame_altera_vl_st import frame_altera_vl_st
+from frame_atualiza_txt import frame_atualiza_txt
 
 root = tk.Tk()
 root.title("Altera SPED Fiscal")
@@ -22,7 +22,8 @@ def frame_aba_1(root):
                         )
     frame_aba_1.pack(expand=True, fill='both')
     
-    botao_localizar_atualizar(frame_aba_1)
+    frame_atualiza_txt(frame_aba_1)
+
     label_assinatura(frame_aba_1)
     
     return frame_aba_1
@@ -56,6 +57,6 @@ notebook = ttk.Notebook(root)
 notebook.pack(expand=True, fill='both')
 notebook.add(frame_aba_1(notebook), text='Atualizar TXT')
 notebook.add(frame_aba_2(notebook), text='Remover Exceções')
-notebook.add(frame_aba_3(notebook), text='Altera VL ST')
+notebook.add(frame_aba_3(notebook), text='Alterar VL ST')
 
 root.mainloop()

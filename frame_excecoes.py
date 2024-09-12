@@ -1,7 +1,8 @@
-from tkinter import Frame, Label, Button, Entry
+from tkinter import Frame, Label, Button, Entry, font
 from seleciona_caminho_txt import seleciona_caminho_txt
 from seleciona_caminho_excell import seleciona_caminho_excell
 from executa_remocao import executa_remocao
+from mostrar_imagens import mostrar_imagem_excecoes
 
 def frame_excecoes(root):
     frame_excecoes = Frame(root,
@@ -25,5 +26,12 @@ def frame_excecoes(root):
     
     botao_confirmar = Button(frame_excecoes, text='EXECUTAR', bg='silver',command=lambda:executa_remocao(entry_importar_txt,entry_importar_excell))
     botao_confirmar.grid(row=2, column=0, padx=(125,0), pady=(20,0))
+    
+    label_font = font.Font(underline=True)
+    label_instrucoes = Label(frame_excecoes, text='?',font=label_font, fg="blue", cursor='hand2')
+    label_instrucoes.grid(row=1, column=2, pady=(10,0))
+    # Associar evento de clique à label de instrução
+    label_instrucoes.bind("<Button-1>", mostrar_imagem_excecoes)
+
     
     return entry_importar_txt

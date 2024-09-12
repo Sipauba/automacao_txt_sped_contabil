@@ -1,4 +1,5 @@
 import openpyxl
+from tkinter import messagebox
 
 def altera_vl_st(caminho_txt, caminho_excel):
     
@@ -91,4 +92,6 @@ def altera_vl_st(caminho_txt, caminho_excel):
     with open(caminho_txt, 'w') as file:
         file.writelines(new_lines)
 
+    messagebox.showinfo("Sucesso", f"Processamento concluído! O arquivo '{caminho_txt}' foi atualizado.")
+    
     print(f"Processamento concluído! O arquivo '{caminho_txt}' foi atualizado.")
