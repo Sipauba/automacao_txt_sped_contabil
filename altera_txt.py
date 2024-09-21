@@ -22,7 +22,11 @@ def altera_txt(caminho_txt):
             
             if line.startswith('|E220|'):
                 if i + 1 < len(lines):
-                    next_line = lines[i + 2]
+                    if i + 1 < len(lines) and lines[i + 1].startswith('|E230|'):
+                        next_line = lines[i + 2]
+                    else:
+                        next_line = lines[i + 1]
+                        
                     pipe_count = next_line.count('|')
                     
                     if pipe_count >= 10:
